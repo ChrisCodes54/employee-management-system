@@ -134,6 +134,8 @@ async function viewEmployeesByDepartment() {
         // CREATE TWO PROPERTIES name AND value FOR THIS OBJECT. THE PROPERTY name SHOULD CONTAIN THE NAME OF THE DEPARTMENT.
         // THE PROPERTY value SHOULD CONTAIN id.
         // TODO: YOUR CODE HERE
+        name: name,
+        value: id
     }));
 
     const { departmentId } = await prompt([
@@ -161,6 +163,8 @@ async function updateEmployeeRole() {
         // THE PROPERTY value SHOULD CONTAIN id.
         // THIS OBJECT FOR EACH MANAGER WILL RETURN TO MAP() TO CONSTRUCT AN ARRAY TO BE RETURNED AND BE STORED TO managerChoices.
         // TODO: YOUR CODE HERE
+        name: `${first_name} ${last_name}`,
+        value: id
     }));
 
     const { employeeId } = await prompt([
@@ -294,6 +298,8 @@ async function addEmployee() {
         // THE PROPERTY value SHOULD CONTAIN id.
         // THIS OBJECT FOR EACH MANAGER WILL RETURN TO MAP() TO CONSTRUCT AN ARRAY TO BE RETURNED AND BE STORED TO managerChoices.
         // TODO: YOUR CODE HERE
+        name: `${first_name} ${last_name}`,
+        value: id
     }));
     managerChoices.unshift({ name: "None", value: null });
 
