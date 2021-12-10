@@ -3,12 +3,12 @@ CREATE DATABASE employee_db;
 
 
 CREATE TABLE department (
-    id INT PRIMARY KEY AUTO_INCRECEMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE roles (
-    id INT PRIMARY KEY AUTO_INCRECEMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) UNIQUE NOT NULL, 
     salary DECIMAL NOT NULL,
     department_id INT NOT NULL,
@@ -16,11 +16,13 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE employee (
-    id INT PRIMARY KEY AUTO_INCRECEMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(30) UNIQUE NOT NULL,
     last_name VARCHAR(30) UNIQUE NOT NULL, 
     role_id INT NOT NULL,
-    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE,
+    manager_id INT,
+    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
 
 -- // department table
