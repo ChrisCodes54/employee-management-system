@@ -25,7 +25,7 @@ Christangarife95@gmail.com
 # Username
 Check out my other work on [Github](https://github.com/ChrisCodes54)
 # Screenshots and Video Link to walkthrough
-Watch the walkthrough video by clicking [here](insert video hereeeee)
+Watch the walkthrough video by clicking [here](https://drive.google.com/file/d/1Cagbk0LSrsNls8g6QYmupzmG7A3gl5MQ/view?usp=sharing)
 
 ![What the user will see once they run the application](images/emshome.PNG)
 
