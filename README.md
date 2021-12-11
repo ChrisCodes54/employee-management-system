@@ -13,7 +13,7 @@ The employee management system allows for workplaces to keep track of their work
 ## Install
 Make sure to clone the repo, then in the root directory run npm install (inquirer,express,dotenv,asciiart-logo, mysql2, and console.table).
 ## Usage
-For managers or upper management to maintain an up to date information base on different types of employees.
+For managers or upper management to maintain an up to date information database system on different types of employees.
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Contributors
