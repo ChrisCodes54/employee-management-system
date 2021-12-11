@@ -11,7 +11,7 @@
 ## Description
 The employee management system allows for workplaces to keep track of their workers and to use different parameters to search.
 ## Install
-Requires Node.js to be installed, NPM, Inquirer, and Jest.
+Make sure to clone the repo, then in the root directory run npm install (inquirer,express,dotenv,asciiart-logo, mysql2, and console.table).
 ## Usage
 For managers or upper management to maintain an up to date information base on different types of employees.
 ## License
@@ -25,9 +25,7 @@ Christangarife95@gmail.com
 # Username
 Check out my other work on [Github](https://github.com/ChrisCodes54)
 # Screenshots and Video Link to walkthrough
-Watch the walkthrough video by clicking [here](https://drive.google.com/file/d/1VS2E3SFVNKRNttSPMuf1smGHiHl-4trW/view?usp=sharing)
+Watch the walkthrough video by clicking [here](insert video hereeeee)
 
-![Back end view of the terminal being answered by user](Develop/images/teamscreenshot.png)
-
-![This is what the user will see on the webpage once outputted and all questions are answered](Develop/images/teamhtml.png)
+![What the user will see once they run the application](images/emshome.PNG)
 
