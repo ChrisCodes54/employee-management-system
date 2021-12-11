@@ -9,14 +9,17 @@ class DB {
 
     // Find all employees, join with roles and departments to display their roles, salaries, departments, and managers
     findAllEmployees() {
-        return this.connection.query
-        
-            // CREATE SELECT STATMENT WITH THE FOLLOWING COLUMNS FROM THREE TABLES.
-            // id, first_name, last_name FROM employee TABLE AND department name from department TABLE AND SELECT salary FROM role TABLE
-            // YOUR NEED TO USE LEFT JOINS TO JOIN THREE TABLES
-            // TODO: YOUR CODE HERE
-            ("SELECT id, first_name, last_name FROM employee AND department name from department AND salary FROM role JOIN employee ON employee.fk_role = role.id, salary, deparment_id, manager_id;")
-            ();
+        return this.connection
+            .query(// CREATE SELECT STATMENT WITH THE FOLLOWING COLUMNS FROM THREE TABLES.
+        // id, first_name, last_name FROM employee TABLE AND department name from department TABLE AND SELECT salary FROM role TABLE
+        // YOUR NEED TO USE LEFT JOINS TO JOIN THREE TABLES
+        // TODO: YOUR CODE HERE
+        `SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary,
+            CONCAT (manager.first_name, " " , manager.last_name) AS manager
+            FROM employee
+            LEFT JOIN role ON employee.role_id = role.id
+            LEFT JOIN department ON role.department_id = department.id
+            LEFT JOIN employee manager ON manager.id = employee.manager_id`);
     }
 
     // Find all employees except the given employee id
@@ -34,12 +37,11 @@ class DB {
 
     // Update the given employee's role
     updateEmployeeRole(employeeId, roleId) {
-        return this.connection
-            .query
+        return this.connection.query(
             // TODO: YOUR CODE HERE
-            ("UPDATE EMPLOYEE SET role_id = ? WHERE id = ?",
-            [employeeId,roleId])
-            ();
+            "UPDATE EMPLOYEE SET role_id = ? WHERE id = ?",
+            [roleId, employeeId]
+        );
     }
 
     // Update the given employee's manager
@@ -58,18 +60,19 @@ class DB {
             // id, title, salary FROM role TABLE AND department name FROM department TABLE
             // YOU NEED TO USE LEFT JOIN TO JOIN role and department TABLES
             // TODO: YOUR CODE HERE
-
-            ();
+            (`SELECT role.id, role.title, role.salary, department.name AS department
+            FROM role
+            LEFT JOIN department ON role.department_id = department.id`)
+            ;
     }
 
     // Create a new role
     createRole(role) {
-        return this.connection
-            .query
+        return this.connection.query(
             // TODO: YOUR CODE HERE
-            ("INSERT INTO role SET ?", 
-            role)
-            ();
+            "INSERT INTO role SET ?",
+            role
+        );
     }
 
     // Find all departments, join with employees and roles and sum up utilized department budget
@@ -86,12 +89,11 @@ class DB {
 
     // Create a new department
     createDepartment(department) {
-        return this.connection
-            .query
+        return this.connection.query(
             // TODO: YOUR CODE HERE
-            ("INSERT INTO department SET ?",
-            department)
-            ();
+            "INSERT INTO department SET ?",
+            department
+        );
     }
 
     // Find all employees in a given department, join with roles to display role titles

@@ -1,13 +1,14 @@
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
+USE employee_db;
 
 CREATE TABLE department (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) UNIQUE NOT NULL
 );
 
-CREATE TABLE roles (
+CREATE TABLE role (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) UNIQUE NOT NULL, 
     salary DECIMAL NOT NULL,
@@ -20,24 +21,7 @@ CREATE TABLE employee (
     first_name VARCHAR(30) UNIQUE NOT NULL,
     last_name VARCHAR(30) UNIQUE NOT NULL, 
     role_id INT NOT NULL,
-    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE,
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE CASCADE,
     manager_id INT,
     CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
-
--- // department table
--- id name
-
--- 1  law
--- 2  finance
-
--- // role table
--- id title salary department_id
-
--- 1  laywer 200k  1
--- 2  accountant 200k 2
-
--- // emp table
--- id name role_id
-
--- 1 chris 2
