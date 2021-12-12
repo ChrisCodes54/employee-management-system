@@ -29,29 +29,11 @@ async function loadMainPrompts() {
                     name: "View All Employees By Department",
                     value: "VIEW_EMPLOYEES_BY_DEPARTMENT",
                 },
-                // Bonus
-                // {
-                //   name: "View All Employees By Manager",
-                //   value: "VIEW_EMPLOYEES_BY_MANAGER"
-                // },
+                
                 {
                     name: "Add Employee",
                     value: "ADD_EMPLOYEE",
                 },
-                // Bonus
-                // {
-                //   name: "Remove Employee",
-                //   value: "REMOVE_EMPLOYEE"
-                // },
-                {
-                    name: "Update Employee Role",
-                    value: "UPDATE_EMPLOYEE_ROLE",
-                },
-                // Bonus
-                // {
-                //   name: "Update Employee Manager",
-                //   value: "UPDATE_EMPLOYEE_MANAGER"
-                // },
                 {
                     name: "View All Roles",
                     value: "VIEW_ROLES",
@@ -60,11 +42,7 @@ async function loadMainPrompts() {
                     name: "Add Role",
                     value: "ADD_ROLE",
                 },
-                //  Bonus
-                // {
-                //   name: "Remove Role",
-                //   value: "REMOVE_ROLE"
-                // },
+                
                 {
                     name: "View All Departments",
                     value: "VIEW_DEPARTMENTS",
@@ -73,11 +51,7 @@ async function loadMainPrompts() {
                     name: "Add Department",
                     value: "ADD_DEPARTMENT",
                 },
-                //  Bonus
-                // {
-                //   name: "Remove Department",
-                //   value: "REMOVE_DEPARTMENT"
-                // },
+                
                 {
                     name: "Quit",
                     value: "QUIT",
@@ -122,9 +96,6 @@ async function viewEmployeesByDepartment() {
     const departments = await db.findAllDepartments();
 
     const departmentChoices = departments.map(({ id, name }) => ({
-        // CREATE TWO PROPERTIES name AND value FOR THIS OBJECT. THE PROPERTY name SHOULD CONTAIN THE NAME OF THE DEPARTMENT.
-        // THE PROPERTY value SHOULD CONTAIN id.
-        // TODO: YOUR CODE HERE
         name: name,
         value: id
     }));
@@ -150,10 +121,6 @@ async function updateEmployeeRole() {
     const employees = await db.findAllEmployees();
 
     const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
-        // CREATE TWO PROPERTIES name AMD value FOR THIS OBJECT. THE PROPERTY name SHOULD CONTAIN THE CONCATENATION OF THE FIRST HAME AND THE LAST NAME.
-        // THE PROPERTY value SHOULD CONTAIN id.
-        // THIS OBJECT FOR EACH MANAGER WILL RETURN TO MAP() TO CONSTRUCT AN ARRAY TO BE RETURNED AND BE STORED TO managerChoices.
-        // TODO: YOUR CODE HERE
         name: `${first_name} ${last_name}`,
         value: id
     }));
@@ -285,10 +252,6 @@ async function addEmployee() {
     employee.role_id = roleId;
 
     const managerChoices = employees.map(({ id, first_name, last_name }) => ({
-        // CREATE TWO PROPERTIES name AMD value FOR THIS OBJECT. THE PROPERTY name SHOULD CONTAIN THE CONCATENATION OF THE FIRST HAME AND THE LAST NAME.
-        // THE PROPERTY value SHOULD CONTAIN id.
-        // THIS OBJECT FOR EACH MANAGER WILL RETURN TO MAP() TO CONSTRUCT AN ARRAY TO BE RETURNED AND BE STORED TO managerChoices.
-        // TODO: YOUR CODE HERE
         name: `${first_name} ${last_name}`,
         value: id
     }));
